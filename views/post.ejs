@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Blog</title>
+  <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>Simple Blog</h1>
+      <button id="addPostBtn">Add Post</button>
+    </header>
+    <% if (locals.title && locals.contents){ %>
+        <%# const posts1 = [locals.title]; %>
+        <%# const posts2 = [locals.contents]; %>
+        <% posts1 =[]; posts2 =[]; %>
+        <% posts1.push(locals.title); %>
+        <% posts2.push(locals.contents); %>
+        <main id="postsList">
+            <% posts1.forEach(post1 => { %>
+                <h3><%= post1 %></h3>
+              <% }) %>
+          
+              <% posts2.forEach(post2 => { %>
+                <p><%= post2 %></p>
+            <% }) %>
+        </main>
+    <% } %>
+  </div>
+
+  <div id="postFormModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Add Post</h2>
+      <form action="/submit" method="post" id="postForm">
+        <label for="postTitle">Title:</label>
+        <input type="text" name="header" id="postTitle" required>
+        <textarea name="content" id="blogcontent" cols="5" rows="10" placeholder="Message" required></textarea>
+        <button type="submit">Add Post</button>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>

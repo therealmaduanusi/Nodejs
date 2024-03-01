@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Blog</title>
+  <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>Simple Blog</h1>
+      <button id="addPostBtn">Add Post</button>
+    </header>
+    <main id="postsList">
+        <%# just testing out the posts data console.log(posts); %>
+        <% posts.forEach((post, index) => { %>
+            <% console.log('the id',index); %>
+            <div class="posts">
+                <h3 class="headTitle"><%= post.title %></h3>
+                <p class="postContent"><%= post.content %></p>
+                <button class="deleteBtn" data-index="<%= index %>">Delete</button>
+            </div>
+        <% }); %>
+    </main>
+  </div>
+
+  <div id="postFormModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Add Post</h2>
+      <form action="/submit" method="post" id="postForm">
+        <label for="postTitle">Title:</label>
+        <input type="text" name="header" id="postTitle" required>
+        <textarea name="content" id="blogcontent" cols="5" rows="10" placeholder="Message" required></textarea>
+        <!-- <button type="submit">Add Post</button> -->
+        <input id="submitBtn" type="submit" value="Add Post">
+      </form>
+    </div>
+  </div>
+
+
+  <script>
+    // console.log(posts);
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const addPostBtn = document.getElementById('addPostBtn');
+        const postFormModal = document.getElementById('postFormModal');
+        const closeModel = document.querySelector('.close')
+
+        const postTitleInput = document.getElementById('postTitle');
+        const postContentTextarea = document.getElementById('blogcontent')
+
+        // Delete and edit Blog
+        const editButtons = document.querySelectorAll('.editBtn');
+        const deleteButtons = document.querySelectorAll('.deleteBtn');
+
+
+
+
+        // Display the Modal
+        addPostBtn.addEventListener('click', function () {
+            postFormModal.style.display = 'block';
+        });
+        
+        // Off the Modal
+        window.addEventListener('click', (event) => {
+            if (event.target === postFormModal) {
+                postFormModal.style.display = 'none';
+            }
+        });
+        // Off the Modal
+        closeModel.addEventListener('click', () => {
+            const postFormModal = document.getElementById('postFormModal');
+            postFormModal.style.display = 'none';
+        })
+
+
+        // Adding click event listeners for each delete button
+        deleteButtons.forEach(deleteButton => {
+            deleteButton.addEventListener('click', function (event) {
+                let index = this.getAttribute("data-index");
+                let btnTag = event.target;
+                let getParentElements = btnTag.parentElement;
+                getParentElements.remove()
+
+               //posts.splice(index, 1)
+
+                console.log('Index and Tag:', index, btnTag.parentElement);
+            });
+        });
+
+
+
+    });
+  </script>
+  
+</body>
+</html>
