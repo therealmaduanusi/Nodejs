@@ -22,7 +22,8 @@ app.post('/submit', (req, res) => {
     // Add the new post to the posts array
     posts.push({ title: infoHead, content: infoContent });
 
-    res.render('index.ejs', { posts });
+    // res.render('index.ejs', { posts });
+    res.redirect('/')
     // res.send('hello')
     // console.log(req.body);
     // console.log(req.body['content']);
