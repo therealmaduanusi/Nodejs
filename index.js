@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
     // res.send('hello')
 })
 app.post('/submit', (req, res) => {
-    const infoHead = req.body['header'];
+    const infoHead = req.body.header;
     const infoContent = req.body['content'];
     // Add the new post to the posts array
     posts.push({ title: infoHead, content: infoContent });
