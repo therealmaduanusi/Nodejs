@@ -17,10 +17,19 @@
     <main id="postsList">
         <%# just testing out the posts data console.log(posts); %>
         <% posts.forEach((post, index) => { %>
-            <% console.log('the id',index); %>
+            <%# console.log('the id',index); %>
             <div class="posts">
-              <h3 class="headTitle"><b><%= post.title %></b></h3>
-              <p class="postContent"><%= post.content %></p>
+              <p class="date">
+                <small><%= post.date %><%#= post.date %></small>
+                <%#= new Date().getDay() %> <%#= new Date().getDate() %> <%#= new Date().getFullYear() %> 
+              </p>
+              <div class="headingPost">
+                <h3 class="headTitle"><%= post.title %></h3>
+              </div>
+              <div class="contentPost">
+                <p class="postContent"><%= post.content %></p>
+              </div>
+
               <button class="deleteBtn btn btn-danger" data-index="<%= index %>">Delete</button>
             </div>
         <% }); %>
@@ -45,59 +54,49 @@
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  <script>
-    // console.log(posts);
-
+  <script type="text/javascript">
     document.addEventListener('DOMContentLoaded', function () {
-        const addPostBtn = document.getElementById('addPostBtn');
-        const postFormModal = document.getElementById('postFormModal');
-        const closeModel = document.querySelector('.close')
+    const addPostBtn = document.getElementById('addPostBtn');
+    const postFormModal = document.getElementById('postFormModal');
+    const closeModel = document.querySelector('.close')
 
-        const postTitleInput = document.getElementById('postTitle');
-        const postContentTextarea = document.getElementById('blogcontent')
+    const postTitleInput = document.getElementById('postTitle');
+    const postContentTextarea = document.getElementById('blogcontent')
 
-        // Delete and edit Blog
-        const editButtons = document.querySelectorAll('.editBtn');
-        const deleteButtons = document.querySelectorAll('.deleteBtn');
-
+    // Delete Blog
+    const deleteButtons = document.querySelectorAll('.deleteBtn');
 
 
 
-        // Display the Modal
-        addPostBtn.addEventListener('click', function () {
-            postFormModal.style.display = 'block';
-        });
-        
-        // Off the Modal
-        window.addEventListener('click', (event) => {
-            if (event.target === postFormModal) {
-                postFormModal.style.display = 'none';
-            }
-        });
-        // Off the Modal
-        closeModel.addEventListener('click', () => {
-            const postFormModal = document.getElementById('postFormModal');
-            postFormModal.style.display = 'none';
-        })
-
-
-        // Adding click event listeners for each delete button
-        deleteButtons.forEach(deleteButton => {
-            deleteButton.addEventListener('click', function (event) {
-                let index = this.getAttribute("data-index");
-                let btnTag = event.target;
-                let getParentElements = btnTag.parentElement;
-                getParentElements.remove()
-
-               //posts.splice(index, 1)
-
-                console.log('Index and Tag:', index, btnTag.parentElement);
-            });
-        });
-
-
-
+    // Display the Modal
+    addPostBtn.addEventListener('click', function () {
+      postFormModal.style.display = 'block';
     });
+    
+    // Off the Modal
+    window.addEventListener('click', (event) => {
+      if (event.target === postFormModal) {
+        postFormModal.style.display = 'none';
+      }
+    });
+    // Off the Modal
+    closeModel.addEventListener('click', () => {
+      const postFormModal = document.getElementById('postFormModal');
+      postFormModal.style.display = 'none';
+    })
+
+    // Adding click event listeners for each delete button
+    deleteButtons.forEach(deleteButton => {
+      deleteButton.addEventListener('click', function (event) {
+        // let index = this.getAttribute("data-index");
+        let btnTag = event.target;
+        let getParentElements = btnTag.parentElement;
+        getParentElements.remove()
+
+        // console.log('Index and Tag:', index, btnTag.parentElement);
+      });
+    });
+  });
   </script>
   
 </body>
