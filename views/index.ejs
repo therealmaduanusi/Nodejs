@@ -15,13 +15,11 @@
       <button id="addPostBtn" class="btn btn-primary">Add Post</button>
     </header>
     <main id="postsList">
-        <%# just testing out the posts data console.log(posts); %>
         <% posts.forEach((post, index) => { %>
-            <%# console.log('the id',index); %>
+            <%#= console.log('the id',index); %>
             <div class="posts">
               <p class="date">
-                <small><%= post.date %><%#= post.date %></small>
-                <%#= new Date().getDay() %> <%#= new Date().getDate() %> <%#= new Date().getFullYear() %> 
+                <small><%= post.date %></small>
               </p>
               <div class="headingPost">
                 <h3 class="headTitle"><%= post.title %></h3>
@@ -30,7 +28,8 @@
                 <p class="postContent"><%= post.content %></p>
               </div>
 
-              <button class="deleteBtn btn btn-danger" data-index="<%= index %>">Delete</button>
+              <button class="deleteBtn btn btn-danger"><a href=<%= `/edit/${index}` %>>Edit</a></button>
+              <button class="deleteBtn btn btn-danger"><a href=<%= `/delete/${index}` %>>Delete</a></button>
             </div>
         <% }); %>
     </main>
@@ -60,11 +59,11 @@
     const postFormModal = document.getElementById('postFormModal');
     const closeModel = document.querySelector('.close')
 
-    const postTitleInput = document.getElementById('postTitle');
-    const postContentTextarea = document.getElementById('blogcontent')
+    // const postTitleInput = document.getElementById('postTitle');
+    // const postContentTextarea = document.getElementById('blogcontent')
 
     // Delete Blog
-    const deleteButtons = document.querySelectorAll('.deleteBtn');
+    // const deleteButtons = document.querySelectorAll('.deleteBtn');
 
 
 
@@ -86,16 +85,16 @@
     })
 
     // Adding click event listeners for each delete button
-    deleteButtons.forEach(deleteButton => {
-      deleteButton.addEventListener('click', function (event) {
-        // let index = this.getAttribute("data-index");
-        let btnTag = event.target;
-        let getParentElements = btnTag.parentElement;
-        getParentElements.remove()
+    // deleteButtons.forEach(deleteButton => {
+    //   deleteButton.addEventListener('click', function (event) {
+    //     // let index = this.getAttribute("data-index");
+    //     let btnTag = event.target;
+    //     let getParentElements = btnTag.parentElement;
+    //     getParentElements.remove()
 
-        // console.log('Index and Tag:', index, btnTag.parentElement);
-      });
-    });
+    //     // console.log('Index and Tag:', index, btnTag.parentElement);
+    //   });
+    // });
   });
   </script>
   

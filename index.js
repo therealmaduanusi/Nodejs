@@ -42,13 +42,20 @@ app.post('/submit', (req, res) => {
   posts.push({ title: infoHead, content: infoContent, date: getDate });
 
   res.render('index.ejs', { posts: posts });
-  // res.redirect('/')
-  // res.send('hello')
-  // console.log(req.body);
-  // console.log(req.body['content']);
-
-  // console.log(posts); // Log the updated posts array
 })
+
+app.get('/edit/:id', (req, res) => {
+  const pathParams = req.path;
+  console.log(pathParams);
+  res.render("index.ejs", { posts: posts });
+})
+
+app.get('/delete/:id', (req, res) => {
+  const pathParams = req.path;
+  console.log(pathParams);
+  res.render("index.ejs", { posts: posts });
+})
+
 app.listen(port, (req, res) => {
   console.log(`Listening at port ${port}`);
 })
