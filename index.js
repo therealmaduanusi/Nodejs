@@ -36,6 +36,9 @@ app.use(express.static(__dirname + '/public'));// handle all static file(unchang
 app.use(bodyParser.urlencoded({extended:true}));// handle form data in express NB: It can still work using "express.urlencoded({extended:true})"
 app.use(methodOverride('_method'))// override method using a query value
 
+// Set EJS as the view engine
+app.set('view engine', 'ejs');
+
 /////////////////////////////////////////////////////////////
 // GET BLOGS
 app.get('/', (req, res) => {
