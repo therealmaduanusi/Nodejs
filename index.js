@@ -37,7 +37,7 @@ app.use(bodyParser.urlencoded({extended:true}));// handle form data in express N
 app.use(methodOverride('_method'))// override method using a query value
 
 // Set EJS as the view engine
-app.set('view engine', 'ejs');
+app.set('views', __dirname + 'views');
 
 /////////////////////////////////////////////////////////////
 // GET BLOGS
