@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="images/blog_nodejs.jpg" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <title>Simple Blog</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>Simple Blog</h1>
+            <button id="addPostBtn" class="btn btn-primary">Add Post</button>
+        </header>
+    </div>
+
+  <div id="postFormModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Add Post</h2>
+      <form action="/post" method="POST" id="postForm">
+        <label for="postTitle">Title:</label>
+        <input type="text" name="title" id="postTitle" class="posts-Titles" required>
+        <label for="postAuthor">Author:</label>
+        <input type="text" name="author" id="postAuthor" class="posts-Titles" required>
+        <textarea name="content" id="blogcontent" cols="5" rows="10" placeholder="Message" required></textarea>
+        <input id="submitBtn" type="submit" value="Add Post" class="btn btn-primary">
+      </form>
+    </div>
+  </div>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function () {
+        const addPostBtn = document.getElementById('addPostBtn');
+        const postFormModal = document.getElementById('postFormModal');
+        const closeModel = document.querySelector('.close')
+
+        // Display the Modal
+        addPostBtn.addEventListener('click', function () {
+        postFormModal.style.display = 'block';
+        });
+        
+        // Off the Modal
+        window.addEventListener('click', (event) => {
+        if (event.target === postFormModal) {
+            postFormModal.style.display = 'none';
+        }
+        });
+        // Off the Modal
+        closeModel.addEventListener('click', () => {
+        const postFormModal = document.getElementById('postFormModal');
+        postFormModal.style.display = 'none';
+        })
+    });
+  </script>
+  
+</body>
+</html>

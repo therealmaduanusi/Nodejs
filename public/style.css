@@ -12,6 +12,11 @@ body {
     padding: 20px;
 }
 
+#postsList {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
 
 header {
     display: flex;
@@ -80,6 +85,6 @@ textarea{
     margin: 10px 0;
     padding: 20px 0 0 20px;
     resize: none;
-    width: 100%;
+    width: 98%;
 }
   

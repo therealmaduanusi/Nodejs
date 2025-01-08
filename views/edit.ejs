@@ -1,0 +1,17 @@
+<%- include('layouts.ejs') %>
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Add Post</h2>
+      <form action=<%= `/posts/${post.id}?_method=PUT` %> method="POST" id="postForm">
+        <%#= post.title%>
+        <label for="postTitle">Title:</label>
+        <input type="text" name="title" id="postTitle" class="posts-Titles" value="<%= post.title%>" required>
+        <label for="postAuthor">Author:</label>
+        <input type="text" name="author" id="postAuthor" class="posts-Titles" value="<%= post.author%>" required>
+        <%#= post.author%>
+        <textarea name="content" id="blogcontent" cols="5" rows="10" placeholder="Message"  required><%= post.content%></textarea>
+        <%#= post.content%>
+        <input id="submitBtn" type="submit" value="Add Post" class="btn btn-primary">
+      </form>
+    </div>
+
