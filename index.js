@@ -2,6 +2,12 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import methodOverride from 'method-override'
 
+// dynamical file path
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+const __dirname = dirname(fileURLToPath(import.meta.url))
+// console.log(__dirname);
+
 const app = express();
 const port = 3001;
 
@@ -26,7 +32,7 @@ let posts = [
   }
 ];
 
-app.use(express.static('public'));// handle all static file(unchanged file)
+app.use(express.static(__dirname + '/public'));// handle all static file(unchanged file)
 app.use(bodyParser.urlencoded({extended:true}));// handle form data in express NB: It can still work using "express.urlencoded({extended:true})"
 app.use(methodOverride('_method'))// override method using a query value
 
