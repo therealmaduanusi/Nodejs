@@ -58,6 +58,7 @@ app.get('/posts/:id/edit', (req, res) => {
   
   res.render('edit.ejs', { post });
 })
+
 //HANDLE UPDATE USING "PUT" METHOD
 app.put('/posts/:id', (req, res) => {
   const { id } = req.params;
