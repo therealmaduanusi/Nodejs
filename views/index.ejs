@@ -11,12 +11,14 @@
                 </div>
                 <div class="contentPost">
                   <p class="postContent"><%= post.content %></p>
-                  <p class="postContent"><i><%= post.author %></i></p>
+                  <p class="postContent"><i><strong><%= post.author %></strong></i></p>
                 </div>
-                <button class="editBtn btn btn-primary"><a style="color: aliceblue;" href=<%= `/posts/${post.id}/edit` %>>Edit</a></button>
-                <form action=<%= `/delete/${post.id}?_method=DELETE` %> method="POST">
-                  <button class="deleteBtn btn btn-danger" type="submit">Delete</button>
-                </form>
+                <div class="btn-container">
+                  <button class="editBtn btn btn-primary"><a style="color: aliceblue;" href=<%= `/posts/${post.id}/edit` %>>Edit</a></button>
+                  <form action=<%= `/delete/${post.id}?_method=DELETE` %> method="POST">
+                    <button class="deleteBtn btn btn-danger" type="submit">Delete</button>
+                  </form>
+                </div>
               </div>
           <% }); %>
         </main>

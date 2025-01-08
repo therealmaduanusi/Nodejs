@@ -11,22 +11,22 @@
 <body>
     <div id="app">
         <header>
-            <h1>Simple Blog</h1>
-            <button id="addPostBtn" class="btn btn-primary">Add Post</button>
+          <h1>Simple Blog</h1>
+          <button id="addPostBtn" class="btn btn-primary">Add Post</button>
         </header>
     </div>
 
   <div id="postFormModal" class="modal">
     <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2>Add Post</h2>
-      <form action="/post" method="POST" id="postForm">
+      <span class="close px-4">&times;</span>
+      <h2 class="border-bottom py-3 px-4">Add Post</h2>
+      <form action="/post" method="POST" id="postForm" class="px-4 py-3">
         <label for="postTitle">Title:</label>
         <input type="text" name="title" id="postTitle" class="posts-Titles" required>
         <label for="postAuthor">Author:</label>
         <input type="text" name="author" id="postAuthor" class="posts-Titles" required>
         <textarea name="content" id="blogcontent" cols="5" rows="10" placeholder="Message" required></textarea>
-        <input id="submitBtn" type="submit" value="Add Post" class="btn btn-primary">
+        <input id="submitBtn" type="submit" value="Add Post" class="btn btn-success">
       </form>
     </div>
   </div>
