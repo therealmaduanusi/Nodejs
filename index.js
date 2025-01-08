@@ -38,6 +38,7 @@ app.use(methodOverride('_method'))// override method using a query value
 
 // Set EJS as the view engine
 app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
 
 /////////////////////////////////////////////////////////////
 // GET BLOGS
