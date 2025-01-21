@@ -74,6 +74,11 @@ header {
 
 /* media query */
 @media (max-width: 400px) {
+    /* GENERAL STYLE */
+    P {
+        font-size: 10px;
+    }
+
     /* id #app */
     #app {
         margin: 5px;
