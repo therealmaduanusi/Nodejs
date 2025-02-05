@@ -15,17 +15,17 @@ app.get('/', (req, res) => {
 ```
 ```css
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: #F0F8FF;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #F0F8FF;
 }
 ```
 ```html
 <header>
-    <h1>Simple Blog</h1>
-    <button id="addPostBtn" class="btn btn-primary">Add Post</button>
+  <h1>Simple Blog</h1>
+  <button id="addPostBtn" class="btn btn-primary">Add Post</button>
 </header>
 ```
 #### EJS
@@ -35,4 +35,4 @@ body {
 - js code are written using anglebracket attached with a percentage sign (**<% js code goes here %>**)
 
 > [!IMPORTANT]
-> It hosted on vercel
+> Hosted on vercel
