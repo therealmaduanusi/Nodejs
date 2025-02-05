@@ -9,7 +9,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 // console.log(__dirname);
 
 const app = express();
-const port = 3001;
+const port = 3000;
 
 // Sample data array for posts
 let id = 1;
